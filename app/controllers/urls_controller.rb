@@ -18,6 +18,7 @@ class UrlsController < ApplicationController
       redirect_to new_url_path
     end
   end
+
   def show
     @url = Url.find_by(short_url: params[:short_url])
     redirect_to @url.sanitize
@@ -28,5 +29,4 @@ class UrlsController < ApplicationController
   def url_params
     params.require(:url).permit(:name, :long_url, :user_id, :category_id)
   end
-
-  end
+end
